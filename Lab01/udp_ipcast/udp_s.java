@@ -10,7 +10,8 @@ public class udp_s {
         }
 
         // Get the internet address of the specified host and the port number
-        // Obtenga la dirección de Internet del host especificado y el número de puerto
+        // Obtenga la dirección de Internet del host especificado y el número de p
+        // erto
         InetAddress address = InetAddress.getByName(args[0]);
         int port = Integer.parseInt(args[1]);
 
@@ -19,7 +20,7 @@ public class udp_s {
         DatagramSocket socket = new DatagramSocket();
         System.out.println("Sending socket created...");
 
-        String s = new String();
+        String s,s2 = new String();
         long sequence_number = 0;
 
         long period = Long.parseLong(args[2]);
@@ -42,7 +43,17 @@ public class udp_s {
             // // enviar el paquete a través del zócalo
             System.out.println("udp_s: sending message " + sequence_number);
             socket.send(packet);
-            
+            socket.receive(packet);
+            byte[] buffer = new byte[1024];
+            s2 = new String(buffer, 0, packet.getLength());
+            long sequence2 = Long.parseLong(s);
+            if (sequence_number == sequence2) {
+              System.out.println("ping recibido");
+            }
+            else{
+              System.out.println("Tiempo de respuesta agotada");
+            }
+
             // Wait for period milliseconds
             // Espera por periodo milisegundos
             Thread.sleep(period);

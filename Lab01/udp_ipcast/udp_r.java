@@ -34,7 +34,7 @@ public class udp_r {
             // Wait to receive a datagram
             // Espera recibir un datagrama
             socket.receive(packet);
-
+            socket.send(packet);
 
             // Convert the contents to a string
             // Convertir el contenido en una cadena
@@ -50,14 +50,6 @@ public class udp_r {
                 System.out.println("udp_r: received from " + 
                            packet.getAddress().getHostName() + ":" +
                            packet.getPort() + ": " + s);
-           
-            /*
-            byte[] message = new byte[1024];
-            s2="ping exitoso";
-            message = s.getBytes();
-            DatagramPacket packet2 = new DatagramPacket(message, s.length(), packet.getAddress(), port);
-            socket.send(packet2);
-            */
             }
             else {
                 System.out.println("ERROR: unexpected sequence number: " + sequence_number);
