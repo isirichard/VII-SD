@@ -5,7 +5,7 @@ import java.util.Random;
 public class ipmulticast_s {
   public static void main(String[] args) throws Exception {
     //se captura quien envio el mensaje
-    if (args.length != 1) {
+    if (args.length != 2) {
       System.out.println("Usage: java ipmulticast_s <your username> <puerto>");
       System.exit(0);
     }
