@@ -42,7 +42,7 @@ public class ipmulticast_s {
       //envio mensaje
       message = args[0] + " sender's message #" + Integer.toString(n++);
       //envio en forma de paquete el mensaje
-      byte[] data = new byte[1024];
+      byte[] data = new byte[8];
       data = message.getBytes();
       packet = new DatagramPacket(data, data.length, address, port);
       //envio el mensaje

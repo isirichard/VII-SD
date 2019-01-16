@@ -36,7 +36,7 @@ public class ipmulticast_r {
 
     while (true) {
       // se crea una memoria
-      byte buffer[] = new byte[1024];
+      byte buffer[] = new byte[8];
       // se inicializar el paquete con la memoria
       packet = new DatagramPacket(buffer, buffer.length);
       // el socket recibe la info en la paquete.
