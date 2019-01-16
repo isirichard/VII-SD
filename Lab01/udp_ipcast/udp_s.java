@@ -48,7 +48,7 @@ public class udp_s {
             s2 = new String(buffer, 0, packet.getLength());
             long sequence2 = Long.parseLong(s);
             if (sequence_number == sequence2) {
-              System.out.println("ping recibido");
+              System.out.println("ping recibido ");
             }
             else{
               System.out.println("Tiempo de respuesta agotada");
