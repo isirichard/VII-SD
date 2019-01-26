@@ -23,10 +23,10 @@ public class CalculadoraImpl extends UnicastRemoteObject implements Calculadora 
     System.setSecurityManager(new RMISecurityManager());
 
     try {
-      Hello obj = new HelloImpl();
+      //Hello obj = new HelloImpl();
       // Bind this object instance to the name "HelloServer"
       // Naming.rebind("rmi://localhost/HelloServer", obj);
-      Naming.rebind("HelloServer", obj);
+      //Naming.rebind("HelloServer", obj);
       System.out.println("HelloServer bound in registry");
     } catch (Exception e) {
       System.out.println("HelloImpl exception: " + e.getMessage());
