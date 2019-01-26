@@ -1,4 +1,3 @@
-package chat;
 import java.rmi.*;
 import java.rmi.server.*;
 import java.io.*;
