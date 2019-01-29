@@ -5,7 +5,7 @@ import java.io.*;
 public class Chat extends UnicastRemoteObject implements MessageReceiver {
   PrintStream outuser;
 
-  public void deliverMsg(int fromPeer,String message) throws RemoteException {
+  public void deliverMsg(String fromPeer,String message) throws RemoteException {
     outuser.println("From peer "+fromPeer+":"+message);
   }
 
@@ -15,26 +15,27 @@ public class Chat extends UnicastRemoteObject implements MessageReceiver {
 
   void start(BufferedReader inuser, 
              PrintStream outuser,
-             int myNum,
+             String myNam,
              MessageReceiver peer1,
              MessageReceiver peer2,
              MessageReceiver peer3) throws RemoteException,Exception {
     this.outuser=outuser;
     outuser.println("Enter messages:");
+    //peer1.toString();
     for(;;) {
       String s=inuser.readLine();     
-      int toNum;
+      String toNam=s.split(" ")[0];
       try {
-        toNum=Integer.parseInt(s.substring(0,1));
-        if(toNum<1 || toNum>3) throw new Exception();
+        
+        
       } catch(Exception e) {
         outuser.println("Error: The first character must be a peer number");
         continue;
       }
-      switch(toNum) {
-        case 1: peer1.deliverMsg(myNum,s); break;
-        case 2: peer2.deliverMsg(myNum,s); break;
-        case 3: peer3.deliverMsg(myNum,s); break;
+      switch(toNam) {
+        case "uno": peer1.deliverMsg(myNam,s); break;
+        case "dos": peer2.deliverMsg(myNam,s); break;
+        case "tres": peer3.deliverMsg(myNam,s); break;
       }
     }
   }

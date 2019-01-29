@@ -11,12 +11,12 @@ class Main {
 
     // Read commandline arguments:
     if(args.length!=4) {
-      outuser.println("Syntax: <mynum> <peer1> <peer2> <peer3>");
-      outuser.println("Here <mynum> is 1, 2 or 3 depening on which peer we are ourself.");
+      outuser.println("Syntax: <myNam> <peer1> <peer2> <peer3>");
+      outuser.println("Here <myNam> is 1, 2 or 3 depening on which peer we are ourself.");
       return;
     }
-    int myNum=Integer.parseInt(args[0]);
-    
+    //int myNam=Integer.parseInt(args[0]);
+    String myNam=args[0];
     // Find registry to use:
     Registry reg;
     outuser.println("Creates new registry on port 7099");
@@ -32,7 +32,12 @@ class Main {
 
     // And start:
     Chat myself=new Chat();
-    reg.rebind(args[myNum],myself);
+    switch(myNam) {
+      case "uno": reg.rebind(args[1],myself);
+      case "dos": reg.rebind(args[2],myself);
+      case "tres": reg.rebind(args[3],myself);
+    }
+    //reg.rebind(args[0],myself);
     outuser.println("Press enter when the two peers have started");
     inuser.readLine();
 
@@ -43,6 +48,6 @@ class Main {
     MessageReceiver peer3=(MessageReceiver)reg.lookup(args[3]);
 
     // And start application:
-    myself.start(inuser,outuser,myNum,peer1,peer2,peer3);
+    myself.start(inuser,outuser,myNam,peer1,peer2,peer3);
   }
 };
