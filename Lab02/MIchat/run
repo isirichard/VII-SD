@@ -1,0 +1,4 @@
+#!/bin/bash
+#
+# Run this script to execute the chat
+java -Djava.rmi.server.codebase=file:$(pwd)/ -Djava.security.policy=policy Main $@

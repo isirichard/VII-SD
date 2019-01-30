@@ -1,0 +1,4 @@
+#!/bin/bash
+#
+# Run this file to compile the Chat program
+javac Chat.java Main.java MessageReceiver.java && rmic Chat
