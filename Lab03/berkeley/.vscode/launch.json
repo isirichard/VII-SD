@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - BerkeleyImpl",
+      "request": "launch",
+      "mainClass": "berkeley.BerkeleyImpl"
+    }
+  ]
+}
