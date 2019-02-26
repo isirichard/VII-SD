@@ -1,7 +1,7 @@
 package epis;
 
 public class MainApp {
-	// número de filosofos > = 2
+	// nï¿½mero de filosofos > = 2
 	static int n = 1;
 
 	public static void main(String[] args) throws InterruptedException {
@@ -16,7 +16,7 @@ public class MainApp {
 		// caso par dando permisos
 		inicializando(mesaFil);
 		
-		//Número de filósofo
+		//Nï¿½mero de filï¿½sofo
 		 for (int i = 0; i < mesaFil.length; i++) { 
 			 System.out.print(i+1+" "); 
 			 }
@@ -96,7 +96,7 @@ public class MainApp {
 		} else {
 			mesaFil[0].setIzquierda(true);
 			mesaFil[0].setDerecha(true);
-			mesaFil[1].setDerecha(false);
+			
 			mesaFil[1].setDerecha(true);
 			for (int i = 2; i < mesaFil.length; i++) {
 				if (i % 2 != 0) {
